@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_92edf5fd90231cca9fd22e00a06f18e3 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.css"/>
+</head>
+<body>
+    
+    
+<div style="position: fixed; 
+            top: 10px; left: 50%; transform: translateX(-50%);
+            background: linear-gradient(to right, #4CAF50, #2196F3); 
+            padding: 10px 20px; 
+            color: white; 
+            font-size: 18px; 
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+            z-index: 1000;
+            text-align: center;
+            font-family: Arial, sans-serif;">
+    <b>Airports in Oman - المطارات في عمان</b>
+</div>
+    
+<div style="position: fixed; 
+            bottom: 10px; left: 50%; transform: translateX(-50%);
+            background: white; 
+            padding: 5px 10px; 
+            font-size: 12px; 
+            border: 1px solid #ccc;
+            z-index: 1000;
+            text-align: center;
+            font-family: Arial, sans-serif;">
+    Data Source: OpenFlights.org | Map by <b>Your Name</b>
+</div>
+    
+            <div class="folium-map" id="map_92edf5fd90231cca9fd22e00a06f18e3" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_92edf5fd90231cca9fd22e00a06f18e3 = L.map(
+                "map_92edf5fd90231cca9fd22e00a06f18e3",
+                {
+                    center: [21.4735, 55.9754],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 6,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_823bff6e5780f0534dc8f61154bb2f59 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_823bff6e5780f0534dc8f61154bb2f59.addTo(map_92edf5fd90231cca9fd22e00a06f18e3);
+        
+    
+            var tile_layer_7e8966644b4755bfec8e5d46bec4f0b5 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_7e8966644b4755bfec8e5d46bec4f0b5.addTo(map_92edf5fd90231cca9fd22e00a06f18e3);
+        
+    
+            var tile_layer_2926c45b3f4c9ac72edf1a2f6e2ee1d3 = L.tileLayer(
+                "https://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}{r}.png",
+                {"attribution": "Map tiles by \u003ca href=\"http://stamen.com\"\u003eStamen Design\u003c/a\u003e, \u003ca href=\"http://creativecommons.org/licenses/by/3.0\"\u003eCC BY 3.0\u003c/a\u003e \u0026mdash; Map data \u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abcd", "tms": false}
+            );
+        
+    
+            tile_layer_2926c45b3f4c9ac72edf1a2f6e2ee1d3.addTo(map_92edf5fd90231cca9fd22e00a06f18e3);
+        
+    
+            var tile_layer_918e3984887757c38b462c9141a7038f = L.tileLayer(
+                "https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}{r}.png",
+                {"attribution": "Map tiles by \u003ca href=\"http://stamen.com\"\u003eStamen Design\u003c/a\u003e, \u003ca href=\"http://creativecommons.org/licenses/by/3.0\"\u003eCC BY 3.0\u003c/a\u003e \u0026mdash; Map data \u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 20, "maxZoom": 20, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abcd", "tms": false}
+            );
+        
+    
+            tile_layer_918e3984887757c38b462c9141a7038f.addTo(map_92edf5fd90231cca9fd22e00a06f18e3);
+        
+    
+            var tile_layer_6db7f42166b21905017032e23fa2c901 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 20, "maxZoom": 20, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abcd", "tms": false}
+            );
+        
+    
+            tile_layer_6db7f42166b21905017032e23fa2c901.addTo(map_92edf5fd90231cca9fd22e00a06f18e3);
+        
+    
+            var tile_layer_5301ce00e5dbac7f8afaf4e78fe08966 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 20, "maxZoom": 20, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abcd", "tms": false}
+            );
+        
+    
+            tile_layer_5301ce00e5dbac7f8afaf4e78fe08966.addTo(map_92edf5fd90231cca9fd22e00a06f18e3);
+        
+    
+            var tile_layer_3fc549c78d4181a362a7dacace678cfa = L.tileLayer(
+                "https://mt1.google.com/vt/lyrs=s\u0026x={x}\u0026y={y}\u0026z={z}",
+                {"attribution": "Google", "detectRetina": false, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_3fc549c78d4181a362a7dacace678cfa.addTo(map_92edf5fd90231cca9fd22e00a06f18e3);
+        
+    
+            var feature_group_cf9dd675f4be34fd00d8008d7d5a2fbc = L.featureGroup(
+                {}
+            );
+        
+    
+            var marker_ca7309a8caaa907833b1183318e52f7e = L.marker(
+                [26.17099952697754, 56.2406005859375],
+                {}
+            ).addTo(feature_group_cf9dd675f4be34fd00d8008d7d5a2fbc);
+        
+    
+            var icon_9c1e4c17441c6745593f67ceaeb1e9cf = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "plane", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_ca7309a8caaa907833b1183318e52f7e.setIcon(icon_9c1e4c17441c6745593f67ceaeb1e9cf);
+        
+    
+        var popup_1447cb36d222508e0dadda0989e67c4c = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_756a3c06079921cf3961b98f1f33d93b = $(`<div id="html_756a3c06079921cf3961b98f1f33d93b" style="width: 100.0%; height: 100.0%;">     <b>Khasab Air Base</b><br>     <b>City:</b> Khasab<br>     <b>Country:</b> Oman<br>     <b>Airports in City:</b> 1<br>     <b>IATA Code:</b> KHS<br>     <b>ICAO Code:</b> OOKB<br>     <b>Altitude:</b> 100 ft (Low altitude)<br>     <b>Timezone:</b> 4<br>     <b>Type:</b> airport     </div>`)[0];
+                popup_1447cb36d222508e0dadda0989e67c4c.setContent(html_756a3c06079921cf3961b98f1f33d93b);
+            
+        
+
+        marker_ca7309a8caaa907833b1183318e52f7e.bindPopup(popup_1447cb36d222508e0dadda0989e67c4c)
+        ;
+
+        
+    
+    
+            var marker_870d0c2177be5353a24bec5bf0d02458 = L.marker(
+                [20.67539978027344, 58.89049911499024],
+                {}
+            ).addTo(feature_group_cf9dd675f4be34fd00d8008d7d5a2fbc);
+        
+    
+            var icon_1bf6a6604a0976cd3029f62ec4def220 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "plane", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_870d0c2177be5353a24bec5bf0d02458.setIcon(icon_1bf6a6604a0976cd3029f62ec4def220);
+        
+    
+        var popup_de0c5e02a2ab3dbb6171560674fca0a0 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_2f6e96ecee695a9bdb95a86f83d21026 = $(`<div id="html_2f6e96ecee695a9bdb95a86f83d21026" style="width: 100.0%; height: 100.0%;">     <b>Masirah Air Base</b><br>     <b>City:</b> Masirah<br>     <b>Country:</b> Oman<br>     <b>Airports in City:</b> 1<br>     <b>IATA Code:</b> MSH<br>     <b>ICAO Code:</b> OOMA<br>     <b>Altitude:</b> 64 ft (Low altitude)<br>     <b>Timezone:</b> 4<br>     <b>Type:</b> airport     </div>`)[0];
+                popup_de0c5e02a2ab3dbb6171560674fca0a0.setContent(html_2f6e96ecee695a9bdb95a86f83d21026);
+            
+        
+
+        marker_870d0c2177be5353a24bec5bf0d02458.bindPopup(popup_de0c5e02a2ab3dbb6171560674fca0a0)
+        ;
+
+        
+    
+    
+            var marker_d3d6bf59cf919e9ffe453450869a3819 = L.marker(
+                [23.593299865722656, 58.284400939941406],
+                {}
+            ).addTo(feature_group_cf9dd675f4be34fd00d8008d7d5a2fbc);
+        
+    
+            var icon_bc2ab255f3e66ce289c666e8bcb97480 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "plane", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_d3d6bf59cf919e9ffe453450869a3819.setIcon(icon_bc2ab255f3e66ce289c666e8bcb97480);
+        
+    
+        var popup_57eb42a3d117e10df1799d771bb0e512 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_164cafaad5457d4c4b35613a6b7a8dcf = $(`<div id="html_164cafaad5457d4c4b35613a6b7a8dcf" style="width: 100.0%; height: 100.0%;">     <b>Muscat International Airport</b><br>     <b>City:</b> Muscat<br>     <b>Country:</b> Oman<br>     <b>Airports in City:</b> 1<br>     <b>IATA Code:</b> MCT<br>     <b>ICAO Code:</b> OOMS<br>     <b>Altitude:</b> 48 ft (Low altitude)<br>     <b>Timezone:</b> 4<br>     <b>Type:</b> airport     </div>`)[0];
+                popup_57eb42a3d117e10df1799d771bb0e512.setContent(html_164cafaad5457d4c4b35613a6b7a8dcf);
+            
+        
+
+        marker_d3d6bf59cf919e9ffe453450869a3819.bindPopup(popup_57eb42a3d117e10df1799d771bb0e512)
+        ;
+
+        
+    
+    
+            var marker_9283e8ee5e550b46aba5d2d0f859eed3 = L.marker(
+                [17.038700103759766, 54.09130096435547],
+                {}
+            ).addTo(feature_group_cf9dd675f4be34fd00d8008d7d5a2fbc);
+        
+    
+            var icon_2ed01c97d1cf7335ad1e05638d2f0350 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "plane", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_9283e8ee5e550b46aba5d2d0f859eed3.setIcon(icon_2ed01c97d1cf7335ad1e05638d2f0350);
+        
+    
+        var popup_1baf899835e61fb5e329ad45a739b845 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_78ebabbfb4514433143423ea62906f3d = $(`<div id="html_78ebabbfb4514433143423ea62906f3d" style="width: 100.0%; height: 100.0%;">     <b>Salalah Airport</b><br>     <b>City:</b> Salalah<br>     <b>Country:</b> Oman<br>     <b>Airports in City:</b> 1<br>     <b>IATA Code:</b> SLL<br>     <b>ICAO Code:</b> OOSA<br>     <b>Altitude:</b> 73 ft (Low altitude)<br>     <b>Timezone:</b> 4<br>     <b>Type:</b> airport     </div>`)[0];
+                popup_1baf899835e61fb5e329ad45a739b845.setContent(html_78ebabbfb4514433143423ea62906f3d);
+            
+        
+
+        marker_9283e8ee5e550b46aba5d2d0f859eed3.bindPopup(popup_1baf899835e61fb5e329ad45a739b845)
+        ;
+
+        
+    
+    
+            var marker_49e959c60fcd44bc4186d937a5ea0b6e = L.marker(
+                [17.666000366210938, 54.024600982666016],
+                {}
+            ).addTo(feature_group_cf9dd675f4be34fd00d8008d7d5a2fbc);
+        
+    
+            var icon_e7d9c3d45a1a5170316d3443d47f7189 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "plane", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_49e959c60fcd44bc4186d937a5ea0b6e.setIcon(icon_e7d9c3d45a1a5170316d3443d47f7189);
+        
+    
+        var popup_b0700106f4401a71379048920d20f552 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_c658de472cc38f947130d09471ba0f1d = $(`<div id="html_c658de472cc38f947130d09471ba0f1d" style="width: 100.0%; height: 100.0%;">     <b>Thumrait Air Base</b><br>     <b>City:</b> Thumrait<br>     <b>Country:</b> Oman<br>     <b>Airports in City:</b> 1<br>     <b>IATA Code:</b> TTH<br>     <b>ICAO Code:</b> OOTH<br>     <b>Altitude:</b> 1570 ft (High altitude)<br>     <b>Timezone:</b> 4<br>     <b>Type:</b> airport     </div>`)[0];
+                popup_b0700106f4401a71379048920d20f552.setContent(html_c658de472cc38f947130d09471ba0f1d);
+            
+        
+
+        marker_49e959c60fcd44bc4186d937a5ea0b6e.bindPopup(popup_b0700106f4401a71379048920d20f552)
+        ;
+
+        
+    
+    
+            var marker_181740dee7a55c49cb38c210439347a3 = L.marker(
+                [24.38604, 56.62541],
+                {}
+            ).addTo(feature_group_cf9dd675f4be34fd00d8008d7d5a2fbc);
+        
+    
+            var icon_c08317d3430cffd48e84e1101328a141 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "plane", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_181740dee7a55c49cb38c210439347a3.setIcon(icon_c08317d3430cffd48e84e1101328a141);
+        
+    
+        var popup_89d6390c1d1a210acd0e0e0a5f7e8292 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_70d4c4fa4eb52d93ffc29b310ccbdb06 = $(`<div id="html_70d4c4fa4eb52d93ffc29b310ccbdb06" style="width: 100.0%; height: 100.0%;">     <b>Sohar Airport</b><br>     <b>City:</b> Sohar<br>     <b>Country:</b> Oman<br>     <b>Airports in City:</b> 1<br>     <b>IATA Code:</b> OHS<br>     <b>ICAO Code:</b> OOSH<br>     <b>Altitude:</b> 20 ft (Low altitude)<br>     <b>Timezone:</b> 4<br>     <b>Type:</b> airport     </div>`)[0];
+                popup_89d6390c1d1a210acd0e0e0a5f7e8292.setContent(html_70d4c4fa4eb52d93ffc29b310ccbdb06);
+            
+        
+
+        marker_181740dee7a55c49cb38c210439347a3.bindPopup(popup_89d6390c1d1a210acd0e0e0a5f7e8292)
+        ;
+
+        
+    
+    
+            var marker_27693584d756369d4bb792fbe8935748 = L.marker(
+                [19.501944, 57.634167],
+                {}
+            ).addTo(feature_group_cf9dd675f4be34fd00d8008d7d5a2fbc);
+        
+    
+            var icon_0fa60c126ec3f3bb041546b78a93599c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "plane", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_27693584d756369d4bb792fbe8935748.setIcon(icon_0fa60c126ec3f3bb041546b78a93599c);
+        
+    
+        var popup_d6d18dddc1100da1f37853dcab58a7fa = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_8724306d56af8ddc51e611c18c0013e3 = $(`<div id="html_8724306d56af8ddc51e611c18c0013e3" style="width: 100.0%; height: 100.0%;">     <b>Duqm International Airport</b><br>     <b>City:</b> Duqm<br>     <b>Country:</b> Oman<br>     <b>Airports in City:</b> 1<br>     <b>IATA Code:</b> DQM<br>     <b>ICAO Code:</b> OODQ<br>     <b>Altitude:</b> 364 ft (Low altitude)<br>     <b>Timezone:</b> 4<br>     <b>Type:</b> airport     </div>`)[0];
+                popup_d6d18dddc1100da1f37853dcab58a7fa.setContent(html_8724306d56af8ddc51e611c18c0013e3);
+            
+        
+
+        marker_27693584d756369d4bb792fbe8935748.bindPopup(popup_d6d18dddc1100da1f37853dcab58a7fa)
+        ;
+
+        
+    
+    
+            var marker_4b7ffc0b50617782a1e717762c8a1822 = L.marker(
+                [23.640556, 57.4875],
+                {}
+            ).addTo(feature_group_cf9dd675f4be34fd00d8008d7d5a2fbc);
+        
+    
+            var icon_c93966e201c316288d9bc0dc4064d326 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "plane", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_4b7ffc0b50617782a1e717762c8a1822.setIcon(icon_c93966e201c316288d9bc0dc4064d326);
+        
+    
+        var popup_e68591fbc00a11defaf7ce82ab8dd72d = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_727adaf02a6e1d4497bb92c425eb3537 = $(`<div id="html_727adaf02a6e1d4497bb92c425eb3537" style="width: 100.0%; height: 100.0%;">     <b>Rustaq Airport</b><br>     <b>City:</b> Al Masna'ah<br>     <b>Country:</b> Oman<br>     <b>Airports in City:</b> 1<br>     <b>IATA Code:</b> MNH<br>     <b>ICAO Code:</b> OORQ<br>     <b>Altitude:</b> 349 ft (Low altitude)<br>     <b>Timezone:</b> \N<br>     <b>Type:</b> airport     </div>`)[0];
+                popup_e68591fbc00a11defaf7ce82ab8dd72d.setContent(html_727adaf02a6e1d4497bb92c425eb3537);
+            
+        
+
+        marker_4b7ffc0b50617782a1e717762c8a1822.bindPopup(popup_e68591fbc00a11defaf7ce82ab8dd72d)
+        ;
+
+        
+    
+    
+            feature_group_cf9dd675f4be34fd00d8008d7d5a2fbc.addTo(map_92edf5fd90231cca9fd22e00a06f18e3);
+        
+    
+            var layer_control_f98babeafd8082f337ac70a27fe0e4b6_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_823bff6e5780f0534dc8f61154bb2f59,
+                    "OpenStreetMap" : tile_layer_7e8966644b4755bfec8e5d46bec4f0b5,
+                    "Stamen Terrain" : tile_layer_2926c45b3f4c9ac72edf1a2f6e2ee1d3,
+                    "Stamen Toner" : tile_layer_918e3984887757c38b462c9141a7038f,
+                    "CartoDB Positron" : tile_layer_6db7f42166b21905017032e23fa2c901,
+                    "CartoDB Dark Matter" : tile_layer_5301ce00e5dbac7f8afaf4e78fe08966,
+                    "Google Satellite" : tile_layer_3fc549c78d4181a362a7dacace678cfa,
+                },
+                overlays :  {
+                    "Airports" : feature_group_cf9dd675f4be34fd00d8008d7d5a2fbc,
+                },
+            };
+            let layer_control_f98babeafd8082f337ac70a27fe0e4b6 = L.control.layers(
+                layer_control_f98babeafd8082f337ac70a27fe0e4b6_layers.base_layers,
+                layer_control_f98babeafd8082f337ac70a27fe0e4b6_layers.overlays,
+                {"autoZIndex": true, "collapsed": true, "position": "topright"}
+            ).addTo(map_92edf5fd90231cca9fd22e00a06f18e3);
+
+        
+    
+            var tile_layer_64bd25c040cd40cd3b5327d8b4bb116c = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+            var mini_map_c369914c3fe527eb4fc93317170c08a5 = new L.Control.MiniMap(
+                tile_layer_64bd25c040cd40cd3b5327d8b4bb116c,
+                {"autoToggleDisplay": false, "centerFixed": false, "collapsedHeight": 25, "collapsedWidth": 25, "height": 150, "minimized": false, "position": "bottomleft", "toggleDisplay": true, "width": 150, "zoomAnimation": false, "zoomLevelOffset": -5}
+            );
+            map_92edf5fd90231cca9fd22e00a06f18e3.addControl(mini_map_c369914c3fe527eb4fc93317170c08a5);
+        
+</script>
+</html>
