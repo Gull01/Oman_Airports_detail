@@ -1,17 +1,17 @@
-# 🛫 Oman Airports Detail Explorer
+# Oman Airports Detail Explorer
 
-## 🚀 Overview
+## Overview
 An interactive map providing detailed visualization and information on airports in Oman.
 
-## ✨ Key Features
+## Key Features
 - **Airport Directory**: Comprehensive geospatial maps of airports across Oman.
 - **Interactive UI**: Detailed popups containing crucial aviation data.
 - **Locational Intelligence**: Effective spatial analysis of Oman's transit hubs.
 
-## 🛠️ Built With
+## Built With
 - **Tech Stack:** Python, GIS Libraries
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 Ensure your local environment is configured securely (e.g. Python 3.8+ or necessary GIS software context).
@@ -27,7 +27,7 @@ Ensure your local environment is configured securely (e.g. Python 3.8+ or necess
    ```
 3. Set up your environment and dependencies as needed.
 
-## 📄 License
+## License
 This project is licensed under the MIT License - see below for details.
 
 ```text
