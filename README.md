@@ -1,16 +1,17 @@
-# Oman Airports Detail An interactive geographic visualization providing location data and details about various airports situated in Oman. ## Overview
-This repository contains an interactive HTML map focusing on Oman's airports, allowing users to explore different aviation hubs across the country. ## Features
-- **Airport Locations**: Precise geographic placement of major and minor airports in Oman.
-- **Interactive Experience**: Built for researchers, geographers, or aviation enthusiasts interested in Oman's infrastructure.
+# Oman Airports Detail
 
 ## Overview
-This project is organized for professional use with clear structure and documentation.
+This repository contains code, assets, and documentation for the **Oman Airports Detail** project.
 
 ## Features
-- Clean and maintainable codebase.
-- Structured for readability and reuse.
+- Clear project scope and maintainable structure.
+- Practical implementation focused on reliability.
+- Ready for extension and collaboration.
 
 ## Getting Started
 1. Clone the repository.
-2. Install dependencies if needed.
-3. Run the project using the repository instructions.
+2. Review the source files and documentation.
+3. Run the project using the tools listed in this repository.
+
+## License
+Add your preferred license information here.
